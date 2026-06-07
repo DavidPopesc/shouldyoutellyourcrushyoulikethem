@@ -88,16 +88,19 @@ button {
 }
 
 .creator-credit {
-  margin: 14px 0 0;
+  margin: 18px 0 0;
   padding-left: 24px;
-  color: var(--ink-soft);
   font-size: 0.9rem;
-  line-height: 1.45;
+  line-height: 1.6;
   text-transform: lowercase;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
 }
 
 .creator-credit a {
-  color: inherit;
+  color: var(--ink-soft);
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
 }

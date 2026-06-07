@@ -59,12 +59,17 @@ export default async function SharePage({ searchParams }: SharePageProps) {
           </div>
         </div>
 
-        <p className="creator-credit">
-          original flowchart by{" "}
-          <a href="https://www.youtube.com/watch?v=hpwyjcd3Ioc" rel="noreferrer" target="_blank">
-            888_Crystal
+        <div className="creator-credit">
+          <a href="https://ko-fi.com/s/be6f167cf6" rel="noreferrer" target="_blank">
+            want the original flowchart? tiny magical link right here =D
           </a>
-        </p>
+          <a href="https://www.youtube.com/@oddlyspecificcrystal" rel="noreferrer" target="_blank">
+            go lurk on crystal&apos;s channel
+          </a>
+          <a href="https://www.youtube.com/watch?v=hpwyjcd3Ioc" rel="noreferrer" target="_blank">
+            watch the exact video that started all this
+          </a>
+        </div>
       </section>
     </main>
   );
