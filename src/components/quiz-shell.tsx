@@ -99,9 +99,13 @@ export function QuizShell({ initialStep }: QuizShellProps) {
         </button>
       </div>
 
-      {current.eyebrow ? <p className="quiz-kicker">{current.eyebrow}</p> : null}
-      <h2 className="quiz-prompt">{current.prompt}</h2>
-      {current.note ? <p className="quiz-note">{current.note}</p> : null}
+      {current.kind === "question" ? (
+        <>
+          {current.eyebrow ? <p className="quiz-kicker">{current.eyebrow}</p> : null}
+          <h2 className="quiz-prompt">{current.prompt}</h2>
+          {current.note ? <p className="quiz-note">{current.note}</p> : null}
+        </>
+      ) : null}
 
       {current.kind === "question" ? (
         <>
