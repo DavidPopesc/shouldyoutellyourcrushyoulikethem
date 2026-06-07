@@ -153,7 +153,7 @@ export function QuizShell({ initialStep }: QuizShellProps) {
       )}
 
       <div className="quiz-footer">
-        <p>{isPending ? "consulting the notebook margins..." : `you are ${history.length} bad decisions deep`}</p>
+        <p>{isPending ? "consulting the notebook margins..." : `you are ${history.length} questions into this mess`}</p>
       </div>
     </div>
   );
