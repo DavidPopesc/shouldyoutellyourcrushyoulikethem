@@ -105,7 +105,7 @@ export function QuizShell({ initialStep }: QuizShellProps) {
 
       {current.kind === "question" ? (
         <>
-          {current.id === "friends-ex-prospect" ? <CadysLawCard /> : null}
+          {current.id === "friends-ex-moral" ? <CadysLawCard /> : null}
 
           <div className="answer-grid">
             {current.answers.map((answer, index) => (

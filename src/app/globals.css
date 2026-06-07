@@ -87,6 +87,21 @@ button {
   position: relative;
 }
 
+.creator-credit {
+  margin: 14px 0 0;
+  padding-left: 24px;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  text-transform: lowercase;
+}
+
+.creator-credit a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
 .quiz-card {
   position: relative;
   background: rgba(255, 251, 244, 0.82);
@@ -527,5 +542,9 @@ button {
 
   .calc-grid {
     grid-template-columns: 1fr;
+  }
+
+  .creator-credit {
+    padding-left: 8px;
   }
 }

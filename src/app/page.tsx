@@ -15,6 +15,12 @@ export default function Home() {
         <div className="doodle doodle-arrow" aria-hidden="true" />
         <div className="doodle doodle-heart" aria-hidden="true" />
         <QuizShell initialStep={initialStep} />
+        <p className="creator-credit">
+          original flowchart by{" "}
+          <a href="https://www.youtube.com/watch?v=hpwyjcd3Ioc" rel="noreferrer" target="_blank">
+            888_Crystal
+          </a>
+        </p>
       </section>
     </main>
   );
