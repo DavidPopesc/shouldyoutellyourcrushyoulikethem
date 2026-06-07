@@ -71,9 +71,9 @@ export function getPathRecap(selections: QuizSelection[]) {
       return null;
     }
 
-    entries.push({
+      entries.push({
       question: current,
-      answerLabel: answer.label,
+      answerLabel: answer.description ? `${answer.label} — ${answer.description}` : answer.label,
       answerId: answer.id,
       nextStep
     });

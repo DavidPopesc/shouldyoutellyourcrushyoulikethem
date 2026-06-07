@@ -1,6 +1,7 @@
 export type QuizAnswer = {
   id: string;
   label: string;
+  description?: string;
   nextStepId: string;
 };
 

@@ -104,20 +104,25 @@ export function QuizShell({ initialStep }: QuizShellProps) {
       {current.note ? <p className="quiz-note">{current.note}</p> : null}
 
       {current.kind === "question" ? (
-        <div className="answer-grid">
-          {current.answers.map((answer, index) => (
-            <button
-              key={answer.id}
-              className="answer-button"
-              data-tilt={index % 4}
-              disabled={isPending}
-              onClick={() => handleAnswer(answer.id)}
-              type="button"
-            >
-              {answer.label}
-            </button>
-          ))}
-        </div>
+        <>
+          {current.id === "friends-ex-prospect" ? <CadysLawCard /> : null}
+
+          <div className="answer-grid">
+            {current.answers.map((answer, index) => (
+              <button
+                key={answer.id}
+                className="answer-button"
+                data-tilt={index % 4}
+                disabled={isPending}
+                onClick={() => handleAnswer(answer.id)}
+                type="button"
+              >
+                <span className="answer-label">{answer.label}</span>
+                {answer.description ? <span className="answer-description">{answer.description}</span> : null}
+              </button>
+            ))}
+          </div>
+        </>
       ) : (
         <>
           <div className={`result-card result-${current.endingStyle}`}>
@@ -145,6 +150,58 @@ export function QuizShell({ initialStep }: QuizShellProps) {
 
       <div className="quiz-footer">
         <p>{isPending ? "consulting the notebook margins..." : `you are ${history.length} bad decisions deep`}</p>
+      </div>
+    </div>
+  );
+}
+
+function CadysLawCard() {
+  const [datedMonths, setDatedMonths] = useState("12");
+  const [friendshipLevel, setFriendshipLevel] = useState("6");
+  const [monthsSinceBreakup, setMonthsSinceBreakup] = useState("6");
+
+  const d = Number(datedMonths);
+  const f = Number(friendshipLevel);
+  const g = Number(monthsSinceBreakup);
+  const recommendedWait = Number.isFinite(d) && Number.isFinite(f) && Number.isFinite(g) && g > 0 ? (d * f) / g : null;
+  const verdict =
+    recommendedWait === null
+      ? "put some numbers in first"
+      : recommendedWait > g
+        ? "danger zone. maybe sit down and breathe for a bit."
+        : "might be survivable. proceed with extreme caution."
+  ;
+
+  return (
+    <div className="calc-card">
+      <p className="calc-kicker">cady&apos;s law</p>
+      <p className="calc-copy">a deeply unscientific calculator for whether asking out your friend&apos;s ex is about to ruin the group chat.</p>
+
+      <div className="calc-grid">
+        <label className="calc-field">
+          <span>D</span>
+          <small>months they dated</small>
+          <input onChange={(event) => setDatedMonths(event.target.value)} type="number" value={datedMonths} />
+        </label>
+
+        <label className="calc-field">
+          <span>F</span>
+          <small>friendship level with your friend, 1-10</small>
+          <input onChange={(event) => setFriendshipLevel(event.target.value)} type="number" value={friendshipLevel} />
+        </label>
+
+        <label className="calc-field">
+          <span>G</span>
+          <small>months since they broke up</small>
+          <input onChange={(event) => setMonthsSinceBreakup(event.target.value)} type="number" value={monthsSinceBreakup} />
+        </label>
+      </div>
+
+      <div className="calc-result">
+        <p>
+          recommended wait: <strong>{recommendedWait === null ? "?" : `${recommendedWait.toFixed(1)} months`}</strong>
+        </p>
+        <p>{verdict}</p>
       </div>
     </div>
   );
